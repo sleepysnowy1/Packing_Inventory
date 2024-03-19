@@ -18,6 +18,11 @@ namespace Packing_Inventory.Classes
         protected const int itemCountLimit = 6; 
         PackCounters packCounter = new PackCounters();
 
+        //InventoryItem.InventoryItem itemManifest[] = new InventoryItem.InventoryItem[itemCountLimit];
+        List<InventoryItem.InventoryItem> itemManifest = new List<InventoryItem.InventoryItem>();
+
+        itemManifest.Capacity = 6;
+
         public double WeightCount
         {
             get { return packCounter.weightLB; } 
@@ -79,7 +84,21 @@ namespace Packing_Inventory.Classes
         
         public bool AddItem(InventoryItem.InventoryItem item)
         {
-            if ()
+            if (packCounter.itemCount + 1 <= itemCountLimit && packCounter.weightLB + item.Weight <= weightLimit && packCounter.volume + item.Volume <= volumeLimit)
+            {
+                itemManifest.Add(item);
+
+                packCounter.volume += item.Volume;
+                packCounter.weightLB += item.Weight; 
+            }
+            else
+                Console.WriteLine($"Trying to add {item.Volume} Volume & {item.Weight} LB when current pack counts are {VolumeCount} Volume & {WeightCount} LB"); 
+                
+        }
+
+        public void ListPackItems()
+        {
+            itemManifest.ForEach(item => { Console.WriteLine(typeof(item)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ; });
         }
         #endregion
     }
