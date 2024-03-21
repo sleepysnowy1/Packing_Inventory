@@ -11,11 +11,14 @@ namespace Packing_Inventory.Classes.InventoryItem
     {
         #region Variables and Properties 
 
+        private readonly string _name; 
         private double weight;
         private double volume;
 
-        public double Weight { get; protected set; }
-        public double Volume { get; protected set; }
+        public double Weight { get { return weight; } protected set { weight = value; } }
+        public double Volume { get { return volume; } protected set { volume = value; } }
+
+        
         #endregion
 
         #region Constructors 
@@ -23,10 +26,15 @@ namespace Packing_Inventory.Classes.InventoryItem
         public InventoryItem(double weight, double volume)
         {
             this.weight = weight;
-            this.volume = volume;
+            this.volume = volume;   
         }
 
         #endregion
+
+        
+        //{
+        //    Console.WriteLine("Name: " + Name + " Weight: " + Weight + " Volume: " + Volume);
+        //}
     }
 
     internal class Arrow : InventoryItem
@@ -34,6 +42,11 @@ namespace Packing_Inventory.Classes.InventoryItem
         public Arrow() : base(0.1, 0.05)
         {
 
+        }
+
+        public override string ToString()
+        {
+            return "Arrow"; 
         }
     }
 
@@ -47,6 +60,10 @@ namespace Packing_Inventory.Classes.InventoryItem
 
         #endregion 
 
+        public override string ToString()
+        {
+            return "Bow"; 
+        }
     }
 
     internal class Rope : InventoryItem
@@ -58,6 +75,11 @@ namespace Packing_Inventory.Classes.InventoryItem
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return "Rope"; 
+        }
     }
 
     internal class Water : InventoryItem
@@ -70,6 +92,11 @@ namespace Packing_Inventory.Classes.InventoryItem
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return "Water";
+        }
     }
 
     internal class Food : InventoryItem
@@ -82,6 +109,11 @@ namespace Packing_Inventory.Classes.InventoryItem
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return "Food";
+        }
     }
 
     internal class Sword : InventoryItem
@@ -94,6 +126,11 @@ namespace Packing_Inventory.Classes.InventoryItem
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return "Sword";
+        }
     }
 
 }

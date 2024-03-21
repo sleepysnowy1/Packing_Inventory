@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\InventoryItem\InventoryItem.cs" />
+    <Compile Include="Classes\Menu.cs" />
     <Compile Include="Classes\Pack.cs" />
     <Compile Include="Data Types\PackCounters.cs" />
     <Compile Include="Data Types\PackLimits.cs" />
